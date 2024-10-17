@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="head">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="base.css" />
+  </head>
+  <body>
+    <header th:fragment="header">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/base">HOME</a></li>
+          <li><a href="/emp_save">CREATE</a></li>
+          <li><a href="/edit_emp">UPDATE</a></li>
+          <li><a href="/index">DELETE</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div style="display: flex; justify-content: center; margin-top: 2rem">
+      <h1 style="color: red; font-family: Arial, sans-serif">
+        <u>Employee Details</u>
+      </h1>
+    </div>
+
+    <!-- Table Section -->
+    <section style="padding: 20px">
+      <table
+        border="1"
+        style="
+          width: 100%;
+          margin-top: 1rem;
+          text-align: center;
+          border-collapse: collapse;
+          font-family: Arial, sans-serif;
+        "
+      >
+        <!-- Table Header Row -->
+        <tr
+          style="
+            background-color: #f8f9fa;
+            color: red;
+            font-size: larger;
+            font-weight: bold;
+          "
+        >
+          <th style="padding: 10px; border: 1px solid #ddd">Employee Id</th>
+          <th style="padding: 10px; border: 1px solid #ddd">Employee Name</th>
+          <th style="padding: 10px; border: 1px solid #ddd">Employee Email</th>
+          <th style="padding: 10px; border: 1px solid #ddd">
+            Employee Address
+          </th>
+          <th style="padding: 10px; border: 1px solid #ddd">Employee Gender</th>
+          <th style="padding: 10px; border: 1px solid #ddd">
+            Employee Password
+          </th>
+          <th style="padding: 10px; border: 1px solid #ddd">Employee DOB</th>
+          <th style="padding: 10px; border: 1px solid #ddd">
+            Employee Profile
+          </th>
+        </tr>
+
+        <!-- Table Data Rows -->
+        <tr
+          th:each="image : ${images}"
+          style="background-color: #f2f2f2; font-weight: 600"
+        >
+          <td
+            style="padding: 10px; border: 1px solid #ddd"
+            th:text="${image.id}"
+          ></td>
+          <td
+            style="padding: 10px; border: 1px solid #ddd"
+            th:text="${image.name}"
+          ></td>
+          <td
+            style="padding: 10px; border: 1px solid #ddd"
+            th:text="${image.email}"
+          ></td>
+          <td
+            style="padding: 10px; border: 1px solid #ddd"
+            th:text="${image.address}"
+          ></td>
+          <td
+            style="padding: 10px; border: 1px solid #ddd"
+            th:text="${image.gender}"
+          ></td>
+          <td
+            style="padding: 10px; border: 1px solid #ddd"
+            th:text="${image.password}"
+          ></td>
+          <td
+            style="padding: 10px; border: 1px solid #ddd"
+            th:text="${image.dob}"
+          ></td>
+          <td style="padding: 10px; border: 1px solid #ddd">
+            <img
+              th:src="@{|/images/${image.profilePic}|}"
+              alt="Profile"
+              style="
+                width: 100px;
+                height: 60px;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              "
+            />
+          </td>
+        </tr>
+
+        <!-- Hover Effect on Rows -->
+        <style>
+          tr:hover {
+            background-color: #f1f1f1;
+          }
+        </style>
+      </table>
+    </section>
+
+    <!-- <h2>Image is:</h2>
+    <div th:each="image : ${images}">
+      <img
+        th:src="@{'/images/' + ${image.profilePic}}"
+        alt="Profile Picture"
+        width="300px"
+        height="300px"
+      />
+    </div> -->
+  </body>
+</html>

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  background-color: #333;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around; /* Evenly distribute items */
+  list-style: none;
+  padding: 1rem;
+}
+
+.nav-links li {
+  flex-grow: 1; /* Ensure all links take equal space */
+  text-align: center;
+}
+
+.nav-links a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #555;
+}
